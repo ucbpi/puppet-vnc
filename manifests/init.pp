@@ -52,7 +52,10 @@ class vnc (
   $xstartup_template = 'vnc/xstartup.erb',
   $vncservers_template = 'vnc/vncservers.erb'
 ) {
-  include vnc::install, vnc::config
+  include vnc::install, vnc::config, vnc::service
 
-  Class['vnc'] -> Class['vnc::install'] -> Class['vnc::config']
+  Class['vnc'] ->
+    Class['vnc::install'] ->
+    Class['vnc::config'] ->
+    Class['vnc::service']
 }

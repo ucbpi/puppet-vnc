@@ -25,6 +25,7 @@ class vnc::config {
         group   => root,
         mode    => '0440',
         content => template($vncservers_template),
+        notify  => Class['vnc::service'],
       }
 
       file { '/etc/skel/.vnc':
