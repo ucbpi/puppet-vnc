@@ -17,6 +17,16 @@
 #   specify an alternative vncservers configuration template that will be
 #   installed to /etc/sysconfig/vncservers.
 #
+# === Binary Requirements
+#
+# This class assumes that the desktop environment(s) is installed and configure
+# appropriately.  The provided xstartup script assumes that gnome is the desktop
+# environment.
+#
+# On RHEL6/CentOS6 hosts, the following package/groups are recommended:
+#  $ yum groupinstall Desktop
+#  $ yum install xrdb xterm
+#
 # === Examples
 #
 #  $vnc_arusso = { 'user' => 'arusso',
