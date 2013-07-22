@@ -2,10 +2,21 @@
 #
 # Installs our vnc server packages
 #
-# === Note:
+# This class should not be called directly, and is called from the vnc class
 #
-#   This class is intended to be called from the vnc class, and should not be
-#   called directly
+# === Authors
+#
+# Aaron Russo <arusso@berkeley.edu>
+#
+# === Copyright
+#
+# Copyright 2013 The Regents of the University of California
+# All Rights Reserved
+#
+# === Note
+#
+# This class is intended to be called from the vnc class, and should not be
+# called directly
 #
 class vnc::install {
   case $::osfamily {

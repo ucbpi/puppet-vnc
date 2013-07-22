@@ -1,21 +1,41 @@
 # == Class: vnc
 #
-# Installs and manages a vnc server
+# Installs and manages a VNC Server
 #
-# === Parameters:
+# === Parameters
 #
 # [*servers*]
-#   an array of hashes with keys for 'user' and 'args'.  The 'user' key will
-#   denote the user that can connect to the server.  The args will provide the
-#   server arguments to the vnc server.
+#   Specify an array of hashes with keys:
+#     * user - username to associate with a vncserver session
+#     * args - arguments to pass to this users vncserver session
 #
 # [*xstartup_template*]
-#   (optional) location of the xstartup template which is installed
-#   into /etc/skel for NEW users of the system.
+#   specify an alternative xstartup script that will be installed to /etc/skel
+#   for all NEW users
 #
 # [*vncservers_template*]
-#   (optional) location of the template the is used to provide the
-#   /etc/sysconfig/vncserver configuration file
+#   specify an alternative vncservers configuration template that will be
+#   installed to /etc/sysconfig/vncservers.
+#
+# === Examples
+#
+#  $vnc_arusso = { 'user' => 'arusso',
+#                  'args' => '-SecurityTypes=VeNCrypt,TLSPlain' }
+#  $vnc_brusso = { 'user' => 'brusso',
+#                  'args' => '-SecurityTypes=VeNCrypt,TLSVnc' }
+#  class { 'vnc':
+#    servers           => [ $vnc_arusso, $vnc_brusso ],
+#    xstartup_template => 'myclass/xstartup.erb',
+#  }
+#
+# === Authors
+#
+# Aaron Russo <arusso@berkeley.edu>
+#
+# === Copyright
+#
+# Copyright 2013 The Regents of the University of California
+# All Rights Reserved
 #
 class vnc (
   $servers = [ ],
