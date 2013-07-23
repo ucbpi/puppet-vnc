@@ -16,6 +16,11 @@
 class vnc::config {
   include vnc
 
+  $notify_class = $vnc::refresh ? {
+    false   => undef,
+    default => Class['vnc::service'],
+  }
+
   case $::osfamily {
     'RedHat': {
       $vncservers_template = $vnc::vncservers_template
@@ -25,7 +30,7 @@ class vnc::config {
         group   => root,
         mode    => '0440',
         content => template($vncservers_template),
-        notify  => Class['vnc::service'],
+        notify  => $notify_class,
       }
 
       file { '/etc/skel/.vnc':
