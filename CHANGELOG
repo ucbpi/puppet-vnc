@@ -1,3 +1,6 @@
+2013-07-30 Aaron Russo <arusso@berkeley.edu> - 0.0.3
+* Adding validation of servers argument
+
 2013-07-30 Aaron Russo <arusso@berkeley.edu> - 0.0.2
 * Updated README to indicate status of module
 
