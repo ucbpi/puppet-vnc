@@ -1,7 +1,12 @@
 # vnc Server Module #
 
 This is a module for managing a VNC server on Red Hat based hosts.  It currently
-is geared towards el6, but el5 support is on the horizon.
+is geared towards rhel6. Pull requests supporting other distros are welcome.
+
+## Further Development ##
+
+Further development of this module will consist of bugfixes and pull requests
+only.
 
 ## Examples ##
 
