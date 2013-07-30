@@ -79,6 +79,8 @@ class vnc (
 ) {
   include vnc::install, vnc::config, vnc::service
 
+  validate_vnc_servers( $servers )
+
   $service_ensure_real = $service_ensure ? {
     /no(action|change)/ => undef,
     default             => $service_ensure,
