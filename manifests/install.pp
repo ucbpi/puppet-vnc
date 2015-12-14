@@ -22,7 +22,7 @@ class vnc::install {
   case $::osfamily {
     'RedHat': {
       case $::operatingsystemrelease {
-        /^6\./: { $package = 'tigervnc-server' }
+        /^[7,6]\./: { $package = 'tigervnc-server' }
         /^5\./: { $package = 'vnc-server' }
         default: { fail('Unsupported OS version') }
       }
@@ -32,5 +32,6 @@ class vnc::install {
     }
   }
 
+  package { 'xterm': ensure => installed }
   package { $package: ensure => installed }
 }
