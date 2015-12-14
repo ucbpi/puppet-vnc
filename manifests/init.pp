@@ -75,7 +75,8 @@ class vnc (
   $service_enable = true,
   $service_ensure = running,
   $xstartup_template = 'vnc/xstartup.erb',
-  $vncservers_template = 'vnc/vncservers.erb'
+  $vncservers_template = 'vnc/vncservers.erb',
+  $vncservers_template_systemctl = 'vnc/vncservers_systemctl.erb'
 ) {
   include vnc::install, vnc::config, vnc::service
 
